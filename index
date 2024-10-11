@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticker Marketing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffff00;
+            color: #000000;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .images {
+            flex: 1;
+            min-width: 300px;
+        }
+        .images img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .cards {
+            flex: 2;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            flex: 1;
+            min-width: 250px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .card h2 {
+            color: #ffff00;
+            background-color: #000000;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 0;
+        }
+        .card .price {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .card ul {
+            padding-left: 20px;
+        }
+        .calendly-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="images">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_1018-IwF9oRcoPWz7nhpHJd8WGOtR049pXA.PNG" alt="120K Impressions Per Day">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_1019-ukNq3jOa64RCCOyctySERuzi3RHF40.jpeg" alt="Awakenings ADE 2024">
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <h2>Sticker Design</h2>
+                    <div class="price">50,- €</div>
+                    <ul>
+                        <li>Share your business website and services</li>
+                        <li>Receive a custom sticker design proposal</li>
+                        <li>Get eye-catching sticker designs delivered the same day</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h2>Combo Deal</h2>
+                    <div class="price">120,- €</div>
+                    <ul>
+                        <li>Share your business website and services</li>
+                        <li>Join a 1-hour strategy session to enhance copywriting and creative design</li>
+                        <li>Receive a personalized marketing strategy</li>
+                        <li>Get custom sticker designs and strategy delivered within 3 days</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="calendly-container">
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/jaz-ruys" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
+        </div>
+    </div>
+</body>
+</html>
