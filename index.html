@@ -32,36 +32,38 @@
             padding: 1.25rem;
         }
         
-        .content {
-            display: flex;
-            flex-wrap: wrap;
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
             gap: 1.25rem;
-            margin-bottom: 1.25rem;
         }
         
-        .images {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .images img {
-            max-width: 100%;
-            height: auto;
+        .grid-item {
+            background-color: var(--card-bg-color);
             border-radius: 0.625rem;
             box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.25rem;
+            overflow: hidden;
         }
         
-        .cards {
-            flex: 2;
+        .image-container {
+            height: 100%;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .offers {
             display: flex;
+            flex-direction: column;
             gap: 1.25rem;
-            flex-wrap: wrap;
+            padding: 1.25rem;
         }
         
         .card {
-            flex: 1;
-            min-width: 250px;
             background-color: var(--card-bg-color);
             border-radius: 0.625rem;
             box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
@@ -96,8 +98,8 @@
             display: block;
             width: 100%;
             padding: 0.875rem;
-            background-color: #0066cc; /* Changed to a bright blue */
-            color: #ffffff; /* Changed to white for better contrast */
+            background-color: #0066cc;
+            color: #ffffff;
             text-align: center;
             border: none;
             border-radius: 0.3125rem;
@@ -108,33 +110,32 @@
         }
         
         .book-button:hover {
-            background-color: #0052a3; /* Darker blue on hover */
-            transform: translateY(-2px); /* Slight lift effect on hover */
+            background-color: #0052a3;
+            transform: translateY(-2px);
         }
         
         .book-button:active {
-            transform: translateY(0); /* Reset position when clicked */
+            transform: translateY(0);
         }
         
         .calendly-container {
-            background-color: var(--card-bg-color);
-            border-radius: 0.625rem;
-            padding: 1.25rem;
-            box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        
+        .calendly-inline-widget {
+            height: 100%;
+            min-height: 700px;
         }
         
         @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
+            .grid {
+                grid-template-columns: 1fr;
             }
             
-            .images, .cards {
-                flex: 1 1 100%;
-            }
-            
-            .card {
-                flex: 1 1 100%;
-            }
+            .grid-item:nth-child(1) { order: 1; }
+            .grid-item:nth-child(2) { order: 2; }
+            .grid-item:nth-child(4) { order: 3; }
+            .grid-item:nth-child(3) { order: 4; }
             
             body {
                 font-size: 14px;
@@ -147,36 +148,35 @@
             .card .price {
                 font-size: 1.25rem;
             }
+            
+            .calendly-inline-widget {
+                height: 500px;
+            }
         }
         
         @media (max-width: 480px) {
             .container {
                 padding: 0.625rem;
             }
-            
-            .calendly-inline-widget {
-                height: 500px !important;
-            }
         }
     </style>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M6P0F3G289"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6P0F3G289"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-M6P0F3G289');
-</script>
+      gtag('config', 'G-M6P0F3G289');
+    </script>
 </head>
 <body>
     <div class="container">
-        <div class="content">
-            <div class="images">
+        <div class="grid">
+            <div class="grid-item image-container">
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_1018-IwF9oRcoPWz7nhpHJd8WGOtR049pXA.PNG" alt="120K Impressions Per Day">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_1019-ukNq3jOa64RCCOyctySERuzi3RHF40.jpeg" alt="Awakenings ADE 2024">
             </div>
-            <div class="cards">
+            <div class="grid-item offers">
                 <div class="card">
                     <h2>Sticker Design</h2>
                     <div class="price">50,- €</div>
@@ -185,7 +185,7 @@
                         <li>Receive a custom sticker design proposal</li>
                         <li>Get eye-catching sticker designs delivered the same day</li>
                     </ul>
-                    <button class="book-button" onclick="document.getElementById('calendly-widget').scrollIntoView()">
+                    <button class="book-button" onclick="document.getElementById('calendly-widget').scrollIntoView({behavior: 'smooth'})">
                         Book Discovery Meeting
                     </button>
                 </div>
@@ -198,17 +198,18 @@
                         <li>Receive a personalized marketing strategy</li>
                         <li>Get custom sticker designs and strategy delivered within 3 days</li>
                     </ul>
-                    <button class="book-button" onclick="document.getElementById('calendly-widget').scrollIntoView()">
+                    <button class="book-button" onclick="document.getElementById('calendly-widget').scrollIntoView({behavior: 'smooth'})">
                         Book Discovery Meeting
                     </button>
                 </div>
             </div>
-        </div>
-        <div id="calendly-widget" class="calendly-container">
-            <!-- Calendly inline widget begin -->
-            <div class="calendly-inline-widget" data-url="https://calendly.com/jasper-ruijs-volteuropa" style="min-width:320px;height:700px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            <!-- Calendly inline widget end -->
+            <div class="grid-item image-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_1019-ukNq3jOa64RCCOyctySERuzi3RHF40.jpeg" alt="Awakenings ADE 2024">
+            </div>
+            <div class="grid-item calendly-container">
+                <div id="calendly-widget" class="calendly-inline-widget" data-url="https://calendly.com/jasper-ruijs-volteuropa"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            </div>
         </div>
     </div>
 </body>
