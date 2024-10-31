@@ -12,6 +12,10 @@
             --card-bg-color: #ffffff;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -81,11 +85,35 @@
         
         .card ul {
             padding-left: 1.25rem;
-            margin-bottom: 0;
+            margin-bottom: 1.25rem;
         }
         
         .card li {
             margin-bottom: 0.5rem;
+        }
+        
+        .book-button {
+            display: block;
+            width: 100%;
+            padding: 0.875rem;
+            background-color: #0066cc; /* Changed to a bright blue */
+            color: #ffffff; /* Changed to white for better contrast */
+            text-align: center;
+            border: none;
+            border-radius: 0.3125rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+        
+        .book-button:hover {
+            background-color: #0052a3; /* Darker blue on hover */
+            transform: translateY(-2px); /* Slight lift effect on hover */
+        }
+        
+        .book-button:active {
+            transform: translateY(0); /* Reset position when clicked */
         }
         
         .calendly-container {
@@ -131,6 +159,15 @@
             }
         }
     </style>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M6P0F3G289"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M6P0F3G289');
+</script>
 </head>
 <body>
     <div class="container">
@@ -148,6 +185,9 @@
                         <li>Receive a custom sticker design proposal</li>
                         <li>Get eye-catching sticker designs delivered the same day</li>
                     </ul>
+                    <button class="book-button" onclick="document.getElementById('calendly-widget').scrollIntoView()">
+                        Book Discovery Meeting
+                    </button>
                 </div>
                 <div class="card">
                     <h2>Combo Deal</h2>
@@ -158,14 +198,17 @@
                         <li>Receive a personalized marketing strategy</li>
                         <li>Get custom sticker designs and strategy delivered within 3 days</li>
                     </ul>
+                    <button class="book-button" onclick="document.getElementById('calendly-widget').scrollIntoView()">
+                        Book Discovery Meeting
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="calendly-container">
+        <div id="calendly-widget" class="calendly-container">
             <!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/jasper-ruijs-volteuropa" style="min-width:320px;height:700px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<!-- Calendly inline widget end -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/jasper-ruijs-volteuropa" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
         </div>
     </div>
 </body>
